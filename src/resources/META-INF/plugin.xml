@@ -1,0 +1,18 @@
+<idea-plugin>
+  <id>com.kubitre.rabbitmq_injector</id>
+  <name>RPC RabbitmqPlugin</name>
+  <version>1.0</version>
+  <vendor email="kubitre@gmail.com" url="https://kubitre.me">Kubitre</vendor>
+
+  <description><![CDATA[
+      plugin for enhance usages annotations RPCRoute, RPCServer, RPCHandler, AsyncRabbitmqHandler, AsyncRabbitListen.<br>
+    ]]></description>
+
+  <idea-version since-build="173.0"/>
+  <depends>com.intellij.modules.java</depends>
+  <depends>org.intellij.intelliLang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <referenceInjector implementation="com.kubitre.rabbitmq_inejector.RabbitmqQueueInjector"/>
+  </extensions>
+</idea-plugin>

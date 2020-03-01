@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="rabbimtq-injector.main" target="1.8" />
+      <module name="rabbimtq-injector.test" target="1.8" />
+      <module name="rabbimtq_injector.main" target="1.8" />
+      <module name="rabbimtq_injector.test" target="1.8" />
+      <module name="rpcRabbitmqPlugin.main" target="1.8" />
+      <module name="rpcRabbitmqPlugin.test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
