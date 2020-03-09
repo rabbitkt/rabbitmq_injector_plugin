@@ -1,0 +1,30 @@
+<idea-plugin>
+  <id>com.kubitre.rabbitmq_injector</id>
+  <name>RPC RabbitmqPlugin</name>
+  <version>1.0</version>
+  <vendor email="kubitre@gmail.com" url="https://kubitre.me">Kubitre</vendor>
+
+  <description><![CDATA[
+      plugin for enhance usages annotations RPCRoute, RPCServer, RPCHandler, AsyncRabbitmqHandler, AsyncRabbitListen.<br>
+    ]]></description>
+
+  <idea-version since-build="173.0"/>
+  <depends>com.intellij.modules.java</depends>
+  <depends>org.intellij.intelliLang</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <postStartupActivity implementation="com.kubitre.rabbitmq_injector.CheckAnnotationProcessorsStartupActivity"/>
+    <implicitUsageProvider implementation="com.kubitre.rabbitmq_injector.RabbitmqRPCUsageProvider"/>
+    <referenceInjector implementation="com.kubitre.rabbitmq_injector.RabbitmqQueueInjector"/>
+    <localInspection implementationClass="com.kubitre.rabbitmq_injector.RabbitmqRPCRouteInspection"
+                     displayName="@RPCRoute инспекция контракта"
+                     groupName="RpcRabbitmqLib"
+                     enabledByDefault="true"
+                     language="UAST"/>
+    <localInspection implementationClass="com.kubitre.rabbitmq_injector.RabbitmqJavaInspector"
+                     displayName="@RPCRoute инспекция контракта"
+                     groupName="RpcRabbitmqLib"
+                     enabledByDefault="true"
+                     language="JAVA"/>
+  </extensions>
+</idea-plugin>

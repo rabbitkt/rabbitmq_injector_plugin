@@ -32,10 +32,10 @@ class RabbitmqQueueInjector : ReferenceInjector() {
     override fun getDisplayName() = "Rabbitmq Queue Name"
 
     override fun getReferences(element: PsiElement, context: ProcessingContext, range: TextRange): Array<PsiReference> {
-        return arrayOf(RabbitmqTopicReference(element))
+        return arrayOf(RabbitmqQueueReference(element))
     }
 
-    class RabbitmqTopicReference(element: PsiElement):
+    class RabbitmqQueueReference(element: PsiElement):
             PsiReferenceBase<PsiElement>(element, ElementManipulators.getValueTextRange(element)),
             EmptyResolveMessageProvider, LocalQuickFixProvider {
         private fun getReferenceTypeName() = "Rabbitmq Queue Name"
@@ -43,6 +43,7 @@ class RabbitmqQueueInjector : ReferenceInjector() {
         private fun getReferenceVariants(): Collection<String> {
             val uAnnotation = element.toUElement()?.getParentOfType<UAnnotation>() ?: return emptyList()
             val psiAnnotation = uAnnotation.javaPsi ?: return emptyList()
+            throw Exception(psiAnnotation.toString())
             val annotationClass = psiAnnotation.nameReferenceElement?.resolve() as? PsiClass ?: return emptyList()
             println(annotationClass)
             val annotationFqn = annotationClass.qualifiedName ?: return emptyList()
